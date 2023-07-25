@@ -2,7 +2,7 @@
 <pre>
 interface EmployeeInterface {
 
-    fun addEmp(name: String, salary: Double, check: (String) -> Unit)
+    fun addEmp(name: String, salary: Double)
 
     fun deleteEmp(name: String, check: (String) -> Unit)
 
@@ -22,8 +22,8 @@ class EmployeeClass() : EmployeeInterface  {
 
     private val empSalary: MutableMap<String, Double> = mutableMapOf()
 
-     override fun addEmp(name: String, salary: Double, check: (String) -> Unit) {
-         check(name)
+     override fun addEmp(name: String, salary: Double) {
+
         if (empSalary[name] == null)
             empSalary[name] = salary
     }
@@ -64,6 +64,7 @@ class EmployeeClass() : EmployeeInterface  {
     }
 
 }
+
 </pre>
 
 # Main Fun 
@@ -72,11 +73,10 @@ fun main(args: Array<String>) {
 
     val empClass = EmployeeClass()
     with(empClass) {
-        addEmp("ahmed", 15000.0, ::checkEmpAvailability)
-        addEmp("mohamed", 8750.40, ::checkEmpAvailability)
-        addEmp("samy", 19633.89, ::checkEmpAvailability)
-        addEmp("omar", 155540.0, ::checkEmpAvailability)
-        addEmp("omar", 155540.0, ::checkEmpAvailability)
+        addEmp("ahmed", 15000.0)
+        addEmp("mohamed", 8750.40)
+        addEmp("samy", 19633.8)
+        addEmp("omar", 155540.0)
         reportOfEmp()
         empPromotion("samy", 25000.0, ::checkEmpAvailability)
         getEmpSalary("samy", ::checkEmpAvailability)
@@ -85,29 +85,22 @@ fun main(args: Array<String>) {
         reportOfEmp()
 
     }
-    
+
 }
 </pre>
 
 # OutPut 
 <pre>
-fun main(args: Array<String>) {
-
-    val empClass = EmployeeClass()
-    with(empClass) {
-        addEmp("ahmed", 15000.0, ::checkEmpAvailability)
-        addEmp("mohamed", 8750.40, ::checkEmpAvailability)
-        addEmp("samy", 19633.89, ::checkEmpAvailability)
-        addEmp("omar", 155540.0, ::checkEmpAvailability)
-        addEmp("omar", 155540.0, ::checkEmpAvailability)
-        reportOfEmp()
-        empPromotion("samy", 25000.0, ::checkEmpAvailability)
-        getEmpSalary("samy", ::checkEmpAvailability)
-        deleteEmp("ahmed", ::checkEmpAvailability)
-        getEmpSalary("ahmed", ::checkEmpAvailability)
-        reportOfEmp()
-
-    }
-    
-}
+employee report......
+Name : ahmed , Salary : 15000.0
+Name : mohamed , Salary : 8750.4
+Name : samy , Salary : 19633.8
+Name : omar , Salary : 155540.0
+samy salary now increase by +5366.200000000001 
+samy salary is 25000.0
+this emp doesn't exist
+employee report......
+Name : mohamed , Salary : 8750.4
+Name : samy , Salary : 25000.0
+Name : omar , Salary : 155540.0
 </pre>
