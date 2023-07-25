@@ -1,16 +1,14 @@
+interface EmployeeInterface {
 
-public interface EmployeeInterface {
+    fun addEmp(name: String, salary: Double, check: (String) -> Unit)
 
-    public abstract fun addEmp(name: kotlin.String, salary: kotlin.Double, check: (kotlin.String) -> kotlin.Unit): kotlin.Unit
+    fun deleteEmp(name: String, check: (String) -> Unit)
 
-    public abstract fun checkEmpAvailability(name: kotlin.String): kotlin.Unit
+    fun getEmpSalary(name: String, check: (String) -> Unit)
 
-    public abstract fun deleteEmp(name: kotlin.String, check: (kotlin.String) -> kotlin.Unit): kotlin.Unit
+    fun empPromotion(name: String, newSalary: Double, check: (String) -> Unit)
 
-    public abstract fun empPromotion(name: kotlin.String, newSalary: kotlin.Double, check: (kotlin.String) -> kotlin.Unit): kotlin.Unit
+    fun reportOfEmp()
 
-    public abstract fun getEmpSalary(name: kotlin.String, check: (kotlin.String) -> kotlin.Unit): kotlin.Unit
-
-    public abstract fun reportOfEmp(): kotlin.Unit
+    fun checkEmpAvailability(name: String)
 }
-
