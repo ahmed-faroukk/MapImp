@@ -1,3 +1,6 @@
+# desc
+The Employee Management System allows you to add new employees with their respective salaries, delete employees, give promotions, and generate a report of all employees and their salaries. The main aim of this code is to practice using maps.
+
 # EmployeeInterface 
 <pre>
 interface EmployeeInterface {
